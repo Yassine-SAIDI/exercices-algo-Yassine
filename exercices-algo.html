@@ -36,6 +36,26 @@
         let time = calculTime(hour, minute, second);
         console.log(time)
 
+
+        // exercice 3 :
+
+        let numbresOfPhotocopy = prompt("le nombre de photocopie effectuées");
+        let pourcent1 = 0.1;
+        let pourcent2 = 0.09;
+        let pourcent3 = 0.08;
+
+        function calculPrise (numbresOfPhotocopy){
+            if (numbresOfPhotocopy <= 10){
+                return numbresOfPhotocopy * pourcent1;
+            }else if (numbresOfPhotocopy > 10 && numbresOfPhotocopy <= 20){
+                return numbresOfPhotocopy * pourcent2;
+            }else {
+                return numbresOfPhotocopy * pourcent3;
+            }
+        }
+        let price = calculPrise (numbresOfPhotocopy) + "€";
+        alert("voici votre facture : " + price);
+
     </script>
     
 </body>
