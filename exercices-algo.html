@@ -9,13 +9,31 @@
 <body>
     
     <script>
-        // exercice 1
+        // exercice 1 :
+
+        let hour1 = prompt("entrez l'heure");
+        hour1 = Number(hour1);
+        let minute1 = prompt("entrez les minutes");
+        minute1 = Number(minute1);
+        minute1 += 1;
+        let time1 = hour1 +"h" + minute1 +"min";
+        console.log(time1)
+
+
+        //  exercice 2 :
+
         let hour = prompt("entrez l'heure");
         hour = Number(hour);
         let minute = prompt("entrez les minutes");
         minute = Number(minute);
-        minute += 1;
-        let time = hour +"h" + minute +"min";
+        let second = prompt("entrez les secondes");
+        second = Number(second);
+
+        function calculTime(hour, minute, second){
+            second += 1;
+            return hour+"H" + minute+"min" + second+"s"
+        }
+        let time = calculTime(hour, minute, second);
         console.log(time)
 
     </script>
