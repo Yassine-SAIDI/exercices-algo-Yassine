@@ -56,6 +56,33 @@
         let price = calculPrise (numbresOfPhotocopy) + "€";
         alert("voici votre facture : " + price);
 
+
+
+        // exercice 4 :
+
+        let sexe = prompt("quel est votre sexe ?");
+        let age = prompt("quel est votre âge ? ");
+
+            if (sexe === "homme"){
+                if (age < 20){
+                alert("vous n'êtes pas imposable !");
+                }else{
+                    alert("vous êtes imposable");
+                }
+            }else if(sexe === "femme"){
+                if(age >= 18 && age <= 35){
+                    alert("vous êtes imposable");
+                }else{
+                    alert("vous n'êtes pas imposable !");
+                }
+            }else {
+                alert("veuillez déterminer votre sexe et votre âge !")
+            }
+        
+
+
+
+
     </script>
     
 </body>
