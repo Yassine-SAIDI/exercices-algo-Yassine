@@ -9,6 +9,7 @@
 <body>
     
     <script>
+
         // exercice 1 :
 
         let hour1 = prompt("entrez l'heure");
@@ -61,25 +62,117 @@
         // exercice 4 :
 
         let sexe = prompt("quel est votre sexe ?");
-        let age = prompt("quel est votre âge ? ");
+        let ageOfPerson = prompt("quel est votre âge ? ");
 
             if (sexe === "homme"){
-                if (age < 20){
+                if (ageOfPerson < 20){
                 alert("vous n'êtes pas imposable !");
                 }else{
                     alert("vous êtes imposable");
                 }
             }else if(sexe === "femme"){
-                if(age >= 18 && age <= 35){
+                if(ageOfPerson >= 18 && ageOfPerson <= 35){
                     alert("vous êtes imposable");
                 }else{
                     alert("vous n'êtes pas imposable !");
                 }
             }else {
                 alert("veuillez déterminer votre sexe et votre âge !")
-            }
-        
+            };
 
+
+
+            // exercice 5 : 
+
+            // 0 = pas d'assurance 
+            // 1 = tarif rouge
+            // 2 = tarif orange
+            // 3 = tarif vert
+            // 4 = tarif blue
+
+            let age = prompt("entrez votre âge");
+            let nbreAccidents = prompt("vous avez provoqué combien d'accident ?");
+            nbreAccidents= Number(nbreAccidents);
+            let dureePermis = prompt ("vous avez le permis depuis combien de d'annes ?");
+            let dureeAssurance = prompt("ça fait combien d'annes que vous êtes avec nous ?");
+
+            function calculTarif (age, nbreAccidents = 0, dureePermis, dureeAssurance){
+                
+                if (age<25 && dureePermis>=2 || age>=25 && dureePermis<2){
+                    if (nbreAccidents===0){
+                        if(dureeAssurance >= 5){
+                            return 3;
+                        }else {
+                        return 2;
+                        }
+                    } else if (nbreAccidents === 1){
+                        if(dureeAssurance >= 5){
+                            return 2;
+                        }else {
+                        return 1;
+                        }
+                    }else {
+                        return 0;
+                    }
+                }else if (age < 25) {
+                    if (dureePermis<2 && nbreAccidents===0) {
+                        if(dureeAssurance >= 5){
+                            return 2;
+                        }else {
+                        return 1;
+                        }
+                    } else {
+                        return 0;
+                    }
+                }else if (age >= 25){
+                    if (nbreAccidents === 0){
+                        if(dureeAssurance >= 5){
+                            return 4;
+                        }else {
+                        return 3;
+                        }
+                    }else if (nbreAccidents === 1){
+                        if(dureeAssurance >= 5){
+                            return 3;
+                        }else {
+                        return 2;
+                        }
+                    }else if (nbreAccidents === 2){
+                        if(dureeAssurance >= 5){
+                            return 2;
+                        }else {
+                        return 1;
+                        }
+                    }else{
+                        return 0;
+                    }
+                }
+            }
+            let point = calculTarif (age, nbreAccidents, dureePermis, dureeAssurance);
+            console.log("votre solde de points est : "+ point)
+
+            switch (point){
+                case 0 : 
+                    alert ("malheursement on ne pas vous assurer");
+                    break;
+
+                case 1 :
+                    alert("vous bénéficier du tarif Rouge");
+                    break;
+
+                case 2 :
+                    alert("vous bénéficier du tarif Orange");
+                    break;
+
+                case 3 :
+                    alert("vous bénéficier du tarif Vert");
+                    break;
+
+                case 4 :
+                    alert("vous bénéficier du tarif Bleu");
+                    break;
+            };
+            
 
 
 
