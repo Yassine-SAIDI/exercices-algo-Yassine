@@ -16,9 +16,20 @@
         hour1 = Number(hour1);
         let minute1 = prompt("entrez les minutes");
         minute1 = Number(minute1);
-        minute1 += 1;
-        let time1 = hour1 +"h" + minute1 +"min";
-        console.log(time1)
+        function calculminute(hour1, minute1) {
+                minute1++;
+                if (minute1 >= 60) {
+                    hour1++;
+                    minute1 = 00;
+                }
+                if (hour1 >= 24) {
+                    hour1 = 00;
+                }
+                return hour1 +"h" + minute1 +"min";
+            }
+        let time1 = calculminute(hour1, minute1);
+        console.log(time1);
+
 
 
         //  exercice 2 :
@@ -31,7 +42,18 @@
         second = Number(second);
 
         function calculTime(hour, minute, second){
-            second += 1;
+            second ++;
+                if (second >= 60) {
+                    minute++;
+                    second = 00;
+                }
+                if (minute >= 60) {
+                    hour++;
+                    minute = 00;
+                }
+                if (hour >= 24) {
+                    hour = 00;
+                }
             return hour+"H" + minute+"min" + second+"s"
         }
         let time = calculTime(hour, minute, second);
@@ -153,7 +175,7 @@
 
             switch (point){
                 case 0 : 
-                    alert ("malheursement on ne pas vous assurer");
+                    alert ("malheursement on ne peut pas vous assurer");
                     break;
 
                 case 1 :
@@ -172,8 +194,6 @@
                     alert("vous bénéficier du tarif Bleu");
                     break;
             };
-            
-
 
 
     </script>
