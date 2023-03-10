@@ -196,6 +196,51 @@
             };
 
 
+
+            // exercice 6 :
+            
+
+            // Saisie des scores des candidats au premier tour
+            let candidatA = prompt("Score du candidat A au premier tour :");
+            candidatA = Number(candidatA);
+            let candidatB = prompt("Score du candidat B au premier tour :");
+            candidatB = Number(candidatB);
+            let candidatC = prompt("Score du candidat C au premier tour :");
+            candidatC = Number(candidatC);
+            let candidatD = prompt("Score du candidat D au premier tour :");
+            candidatD = Number(candidatD);
+
+            // Calcul du pourcentage de votes pour le candidat A au premier tour
+            let totalVotes;
+            let pourcentageA;
+
+            function calculFirstVote(totalVotes) {
+                totalVotes = candidatA + candidatB + candidatC + candidatD;
+                pourcentageA = (candidatA / totalVotes) * 100;
+                return pourcentageA
+            };
+            pourcentageA = calculFirstVote(totalVotes);
+
+            // Détermination du résultat du premier tour pour le candidat A
+            let resultatPremierTour;
+
+            if (pourcentageA >= 50) {
+                resultatPremierTour = "élu dès le premier tour avec ";
+            } else if (pourcentageA >= 12.5) {
+                if (candidatA > candidatB && candidatA > candidatC && candidatA > candidatD) {
+                    resultatPremierTour = "arrivé en tête et participe au second tour en ballotage favorable avec "
+                } else if (candidatA <= candidatB && candidatA <= candidatC && candidatA <= candidatD) {
+                    resultatPremierTour = "n'arrivé pas en tête et participe au second tour en ballottage défavorable avec "
+                } else {
+                    resultatPremierTour = "participe au second tour avec "
+                }
+            } else {
+                resultatPremierTour = "battu dès le premier tour avec ";
+            };
+
+            alert("Résultat du premier tour pour le candidat A : " + resultatPremierTour + pourcentageA + "%");
+
+
     </script>
     
 </body>
